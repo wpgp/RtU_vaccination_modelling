@@ -1,11 +1,17 @@
 # RtU_vaccination_modelling
 Reach the Unreached: Vaccination Modelling
-This repository contains the methodology and R code used to analyze the DTP vaccination coverage for children aged 12-23 months in Guinea, based on the 2018 Guinea Demographic and Health Surveys (GDHS). The dataset consists of information from 7951 respondents across 401 survey cluster locations, focusing on vaccination coverage for DTP1-3. 
+This repository contains the methodology and R code used to analyze the DTP vaccination coverage for children aged 12-23 months in Guinea, based on the 2018 Guinea Demographic and Health Surveys (GDHS) focusing on vaccination coverage for diphtheria-tetanus-pertussis (DTP1, DTP2 and DTP3) vaccines. 
 
 
 # Overview
 Vaccination coverage is defined as the proportion of the target population that has been vaccinated in a given time period. Estimates of vaccination coverage can be obtained from administrative and official sources and household surveys. However, due to unreliable or incomplete routine data systems, nationally representative household surveys are commonly used in low- and middle-income countries to fill the data gaps that exist. Most surveys usually focus on providing data at the provincial or regional levels and not at smaller administrative levels like prefectures, where vaccination programmes are planned and carried out. This creates a challenge in assessing vaccination coverage at the local level. Geospatial modelling techniques can help solve this problem by creating estimates of indicators of as vaccination coverage at finer grid levels, such as 1x1 km. These estimates can then be aggregated, through weighting using population data, to provide estimates at various administrative levels. In this study, we use geospatial methods to estimate the coverage of three doses of the diphtheria-tetanus-pertussis (DTP1, DTP2 and DTP3) vaccine for Guinea at a 1x1 km resolution and for three different administrative levels. This approach allows for more accurate and localised information to improve vaccination programmes. The principal objective is illustrated in the figure below.
-![Mapping DTP vaccination coverage from survey data to 1x1 km modelled estimates](Fig1.png)
+
+<p align="center">
+  <img src="Fig1.png" alt="Mapping DTP vaccination coverage from survey data to 1x1 km modelled estimates" />
+</p>
+<p align="center">
+  <em>Fig1: Mapping DTP vaccination coverage from survey data to 1x1 km modelled estimates.</em>
+</p>
 
 
 
@@ -20,7 +26,12 @@ The dataset used in this study comes from the 2018 Guinea Demographic and Health
 
 The figure below depicts the steps taken to analyse DTP vaccination coverage:
 
-![Workflow for geospatial modelling of DTP vaccination coverage](Fig2.png)
+<p align="center">
+  <img src="Fig2.png" alt="Workflow for geospatial modelling of DTP vaccination coverage" />
+</p>
+<p align="center">
+  <em>Fig2: Workflow for geospatial modelling of DTP vaccination coverage.</em>
+</p>
 
 ### Vaccination Data Extraction
 Household survey data on DTP vaccination was collected and processed at the cluster level. Data was then stratified by age groups to understand vaccination coverage across different child age ranges.
@@ -31,7 +42,7 @@ Relationships between vaccination coverage and covariates were visually analysed
 
 ### Model Fitting
 Bayesian binomial geostatistical models were fitted using the integrated nested Laplace approximation (INLA) with stochastic partial differential equation (SPDE) approach. A ratio-based method ensured logical consistency in vaccination coverage probabilities: (Utazi et al., 2021, Utazi et al., 2022)
-- p(DTP1)≥p(DTP2)≥p(DTP3)
+*p(DTP1)≥p(DTP2)≥p(DTP3)*
 
 ### Prediction
 The fitted model was used to predict vaccination coverage at a fine spatial resolution (1x1 km). An uncertainty map was also generated to highlight areas where predictions were less certain.
@@ -75,7 +86,12 @@ The principal purpose of this script is to detect multicollinearity and select s
 ### Step 4: Model Fitting, Prediction and Aggregation to Administrative Areas
 This script (`model_dtp1.R`) is a statistical modelling workflow that applies Bayesian spatial modelling techniques using the INLA-SPDE approach with a binomial likelihood function and spatial random effects (Rue, Martino, & Chopin, 2009, Lindgren, 2012, Lindgren & Rue, 2015). It focuses on analysing vaccination data (DTP1 coverage) by combining geographical and socio-economic covariates, using spatial data (coordinates, raster layers, and shapefiles) to model the spatial variation in vaccination coverage across different regions. The approach includes mesh generation for spatial random effects, prediction of vaccination coverage across unobserved locations, and posterior sampling to obtain credible intervals for the predictions, which are then visualized and saved for further analysis.
 
-![Delaunay triangulation configuration used in the INLA-SPDE method for Guinea](Fig3.png)
+<p align="center">
+  <img src="Fig3.png" alt="Delaunay triangulation configuration used in the INLA-SPDE method for Guinea" />
+</p>
+<p align="center">
+  <em>Fig3: Delaunay triangulation configuration used in the INLA-SPDE method for Guinea.</em>
+</p>
 
 The ratio-based (RB) approach models vaccination coverage by using ratios of consecutive doses to ensure the monotonicity constraint is met (Utazi et al., 2022). This technique confirms p(DTP1)≥p(DTP2)≥p(DTP3).
 
