@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/901850385.svg)](https://doi.org/10.5281/zenodo.14394623)
+
 # RtU_vaccination_modelling
 Reach the Unreached: Vaccination Modelling
 
@@ -108,7 +110,7 @@ The Reach the Unreached – Digital technologies to map zero-dose and unreached 
 This method report was written by Somnath Chaudhuri and Edson Utazi. The contributions of the entire WorldPop team to the developed method and to the current applications are also acknowledged.
 
 ## Suggested citation
-Chaudhuri S., Olowe I., Lazar A. N., Tatem A. J., Utazi C. E. 2024. Vaccination coverage estimates for Guinea (2023)
+Chaudhuri S., Olowe I., Lazar A. N., Tatem A. J., Utazi C. E. 2024. Vaccination coverage estimates for Guinea (2023) DOI:10.5281/zenodo.14394624
 
 ## License
 This code and Readme document may be redistributed following the terms of a Creative Commons Attribution 4.0 International (CC BY 4.0) License.
