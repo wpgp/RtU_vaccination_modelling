@@ -14,23 +14,8 @@ The dataset used in this study comes from the 2018 Guinea Demographic and Health
 
 ## Prerequisites
 - R programming environment
-- Required R packages: 
-    - car
-    - dplyr
-    - ggplot2
-    - gtools
-    - INLA
-    - MASS
-    - maptools
-    - Metrics
-    - plyr
-    - raster
-    - reshape2
-    - sf
-    - sp
-    - spdep
-    - xtable
-
+- Required R packages: `car`, `dplyr`, `ggplot2`, `gtools`, `INLA`, `MASS`, `maptools`, `Metrics`, `plyr`, `raster`, `reshape2`, `sf`, `sp`, `spdep`, `xtable`
+    
 ## Methodology
 
 The figure below depicts the steps taken to analyse DTP vaccination coverage:
@@ -106,7 +91,7 @@ The Reach the Unreached – Digital technologies to map zero-dose and unreached 
 This method report was written by Somnath Chaudhuri and Edson Utazi. The contributions of the entire WorldPop team to the developed method and to the current applications are also acknowledged.
 
 ## Suggested citation
-Chaudhuri S., Utazi C. E., Olowe I., Lazar A. N., Tatem A. J. 2024. Vaccination coverage estimates for Guinea (2023)
+Chaudhuri S., Olowe I., Lazar A. N., Tatem A. J., Utazi C. E. 2024. Vaccination coverage estimates for Guinea (2023)
 
 ## License
 This code and Readme document may be redistributed following the terms of a Creative Commons Attribution 4.0 International (CC BY 4.0) License.
