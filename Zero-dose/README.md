@@ -84,7 +84,7 @@ Double-click on the tool to open its panel and follow the following instructions
 Upon running the tool, the number of unvaccinated or zero-dose children for dtp1 gets added to the map window. Repeat the same process using the same formula for other vaccination rasters. Upon completion, they all get added to the map window as shown below.
 
 <div align="center">
-<img src="Figures/Fig_z7.png" alt="Map Window" width="700" height="500">
+<img src="Figures/Fig_z7.png" alt="Map Window" width="600" height="500">
 </div>
 
 
@@ -94,7 +94,7 @@ However, this is still at the grid level and the final estimates are required at
 Again, open the Processing Toolbox, and search for **Zonal Statistics** in the search box. 
 
 <div align="center">
-<img src="Figures/Fig_z8.png" alt="Processing Toolbox" width="400" height="250">
+<img src="Figures/Fig_z8.png" alt="Processing Toolbox" width="350" height="200">
 </div>
 
 Select the **Input layer** as the shapefile to be used, **Raster layer** as any of the zero-dose raster layers produced earlier, in this case, dtp1 zero-dose raster. In the output column prefix, give it a meaningful name, such as `dtp1_` to indicate which vaccine is considered. In the **Statistics to calculate**, click on the three dots, which opens a new pane to select a statistic. Click on **Sum** and select Ok. Go back to the Zonal statistics window using the arrow. 
@@ -156,7 +156,7 @@ Close the attribute table. You can now export your layer either to a shapefile o
 
 
 <div align="center">
-<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="700" height="500">
+<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="600" height="500">
 </div>
 
 
