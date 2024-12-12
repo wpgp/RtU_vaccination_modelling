@@ -84,7 +84,7 @@ Double-click on the tool to open its panel and follow the following instructions
 Upon running the tool, the number of unvaccinated or zero-dose children for dtp1 gets added to the map window. Repeat the same process using the same formula for other vaccination rasters. Upon completion, they all get added to the map window as shown below.
 
 <div align="center">
-<img src="Figures/Fig_z7.png" alt="Map Window" width="500" height="450">
+<img src="Figures/Fig_z7.png" alt="Map Window" width="700" height="500">
 </div>
 
 
@@ -156,19 +156,19 @@ Close the attribute table. You can now export your layer either to a shapefile o
 
 
 <div align="center">
-<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="500" height="450">
+<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="700" height="500">
 </div>
 
 
 Once clicked, this opens a new window. Under the **Format** section, select `ESRI Shapefile` to save as a shapefile or **Comma Separated Value [CSV]** to save as CSV. 
 
 <div align="center">
-<img src="Figures/Fig_z19.png" alt="Save Vector Layer" width="400" height="300">
+<img src="Figures/Fig_z19.png" alt="Save Vector Layer">
 </div>
 
 
 <div align="center">
-<img src="Figures/Fig_z20.png" alt="Save Vector Layer CSV" width="400" height="300">
+<img src="Figures/Fig_z20.png" alt="Save Vector Layer CSV">
 </div>
 
 ## Notes
