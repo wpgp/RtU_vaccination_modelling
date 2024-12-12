@@ -41,7 +41,7 @@ Upon clicking, the window below opens. Click the three dots beside **Raster data
 Add one or multiple files and click **Add** > **Close** to add the selected files which will be displayed on the map window and checked on the Layers panel as shown below. 
 
 <div align="center">
-<img src="Figures/Fig_z3.png" alt="Layers Panel">
+<img src="Figures/Fig_z3.png" alt="Layers Panel" width="400" height="100">
 </div>
 
 
@@ -57,7 +57,7 @@ Zero-dose calculations use a population-weighted aggregation with the formula:
 This requires the Raster calculator. Navigate to the Processing Toolbox where all tools are found by clicking on the Attributes toolbar above the map window, and click on the tool shown as a gear sign. This opens the Processing toolbox on any side of the map window. Navigate to the search box and type in the **Raster calculator** tool. 
 
 <div align="center">
-<img src="Figures/Fig_z4.png" alt="Processing Toolbox">
+<img src="Figures/Fig_z4.png" alt="Processing Toolbox" width="300" height="200">
 </div>
 
 Double-click on the tool to open its panel and follow the following instructions:
@@ -84,7 +84,7 @@ Double-click on the tool to open its panel and follow the following instructions
 Upon running the tool, the number of unvaccinated or zero-dose children for dtp1 gets added to the map window. Repeat the same process using the same formula for other vaccination rasters. Upon completion, they all get added to the map window as shown below.
 
 <div align="center">
-<img src="Figures/Fig_z7.png" alt="Map Window">
+<img src="Figures/Fig_z7.png" alt="Map Window" width="400" height="400">
 </div>
 
 
@@ -94,7 +94,7 @@ However, this is still at the grid level and the final estimates are required at
 Again, open the Processing Toolbox, and search for **Zonal Statistics** in the search box. 
 
 <div align="center">
-<img src="Figures/Fig_z8.png" alt="Processing Toolbox">
+<img src="Figures/Fig_z8.png" alt="Processing Toolbox" width="300" height="150">
 </div>
 
 Select the **Input layer** as the shapefile to be used, **Raster layer** as any of the zero-dose raster layers produced earlier, in this case, dtp1 zero-dose raster. In the output column prefix, give it a meaningful name, such as `dtp1_` to indicate which vaccine is considered. In the **Statistics to calculate**, click on the three dots, which opens a new pane to select a statistic. Click on **Sum** and select Ok. Go back to the Zonal statistics window using the arrow. 
@@ -119,7 +119,7 @@ Go back to the Zonal Statistics window and change the **Input layer** to the new
 
 
 <div align="center">
-<img src="Figures/Fig_z12.png" alt="Choose Zonal Statistics Option">
+<img src="Figures/Fig_z12.png" alt="Choose Zonal Statistics Option" width="400" height="100">
 </div>
    
 This adds a new **Zonal Statistics** layer on the previous layer. Remove the old layer by right-clicking and choose **Remove layer**. Repeat the same step for the dtp3 zero-dose and Population raster layers, and close the Zonal Statistics tool window.
@@ -156,7 +156,7 @@ Close the attribute table. You can now export your layer either to a shapefile o
 
 
 <div align="center">
-<img src="Figures/Fig_z18.png" alt="Shapefile Layer">
+<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="400" height="400">
 </div>
 
 
