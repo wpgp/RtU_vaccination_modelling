@@ -1,6 +1,6 @@
 # Zero-Dose Estimation Using QGIS
 
-This document depicts how to calculate the estimates of numbers of un and under-vaccinated children in Cameroon at the Commune Arrondissement administrative level.
+This document depicts how to calculate the estimates of numbers of un and under-vaccinated children in Cameroon at the Commune Arrondissement administrative level for Cameroon.
 
 ## Required Files
 
@@ -25,14 +25,27 @@ For this exercise, QGIS v3.40.0 was used.
    - Click the **Layer** tab on the **Menu Toolbar**.
    - Select **Add Layer** > **Add Raster Layer**.
 
-   <div align="center">
-   <img src="Fig_z1.png" alt="Raster Dataset Selection">
-   </div>
 
-   - Click the three dots beside **Raster dataset(s)** to navigate to the files.
-   - Add one or multiple files and click **Add** > **Close**. The files will be displayed in the map window and listed in the Layers panel.
+<div align="center">
+<img src="Figures/Fig_z1.png" alt="Raster Dataset Selection">
+</div>
 
-3. Follow the same process to add the shapefile for Commune Arrondissement by selecting **Add Vector Layer** instead.
+
+Upon clicking, the window below opens. Click the three dots beside **Raster dataset(s)** and navigate to where these files are found. This way allows adding a single file or multiple files at once.
+
+<div align="center">
+<img src="Figures/Fig_z2.png" alt="Datasource Manager">
+</div>
+
+
+Add one or multiple files and click **Add** > **Close** to add the selected files which will be displayed on the map window and checked on the Layers panel as shown below. 
+
+<div align="center">
+<img src="Figures/Fig_z3.png" alt="Layers Panel">
+</div>
+
+
+Follow the same process to add the shapefile for Commune Arrondissement by selecting **Add Vector Layer** instead.
 
 ## Zero-Dose Calculation
 
@@ -41,62 +54,122 @@ Zero-dose calculations use a population-weighted aggregation with the formula:
 ```
 (1 - Vaccination Coverage Raster) * Population Raster
 ```
+This requires the Raster calculator. Navigate to the Processing Toolbox where all tools are found by clicking on the Attributes toolbar above the map window, and click on the tool shown as a gear sign. This opens the Processing toolbox on any side of the map window. Navigate to the search box and type in the **Raster calculator** tool. 
 
-### Steps to Perform Zero-Dose Calculation Using Raster Calculator
-1. Navigate to the **Processing Toolbox** by clicking on the Attributes toolbar above the map window.
-2. Search for **Raster Calculator** and double-click to open its panel.
-3. Follow these instructions:
-   - Click the three dots beside the **Input layers** box to select the vaccination raster and the population raster.
-   - Open the Expression box (∑) and type:
+<div align="center">
+<img src="Figures/Fig_z4.png" alt="Processing Toolbox">
+</div>
+
+Double-click on the tool to open its panel and follow the following instructions:
+
+1. Click on the three dots beside the **Input layers** box, to select the vaccination raster and the population raster.
+2. Open the Expression box (∑) and type:
      ```
      (1 - vaccination raster) * Population raster
      ```
-   - Set an output extent by clicking the down arrow beside **Output extent [optional]** and selecting **Calculate from Layer**. Choose the Population layer.
-   - Save the final output by clicking the three dots under the **Calculated** section and provide a meaningful name.
-   - Leave other settings as default and click **Run**.
+     Click OK to go back to the Calculator.
+3. Set an output extent by clicking the down arrow beside **Output extent [optional]** and select **Calculate from Layer**. This shows the available layers, then select the Population layer. This sets the extent to that of the population layer.
+4. Under the **Calculated** section, click the three dots to save the final output to folder, using a preferred meaningful name.
+5. Leave other settings as default and click **Run**.
 
-   <div align="center">
-   <img src="Fig_z2.png" alt="Raster Calculator Setup">
-   </div>
+<div align="center">
+<img src="Figures/Fig_z5.png" alt="Raster Calculator Setup">
+</div>
 
-4. Repeat the process for the remaining vaccination rasters (DTP2, DTP3). The outputs will be added to the map window.
 
-## Estimation at Administrative Level
+<div align="center">
+<img src="Figures/Fig_z6.png" alt="Raster Calculator">
+</div>
 
-### Using Zonal Statistics
-1. Open the **Processing Toolbox** and search for **Zonal Statistics**.
-2. Configure the Zonal Statistics tool:
-   - Set the **Input Layer** to the shapefile.
-   - Set the **Raster Layer** to one of the zero-dose rasters (e.g., DTP1 zero-dose raster).
-   - Set the **Output Column Prefix** to a meaningful name (e.g., `dtp1_`).
-   - Under **Statistics to Calculate**, select **Sum**.
+Upon running the tool, the number of unvaccinated or zero-dose children for dtp1 gets added to the map window. Repeat the same process using the same formula for other vaccination rasters. Upon completion, they all get added to the map window as shown below.
 
-   <div align="center">
-   <img src="Fig_z3.png" alt="Zonal Statistics Setup">
-   </div>
+<div align="center">
+<img src="Figures/Fig_z7.png" alt="Map Window">
+</div>
 
-3. Click **Run**. A new layer called **Zonal Statistics** will be added. Right-click it to open the attribute table and verify that a new field (e.g., `dtp1_sum`) has been added.
-4. Repeat the process for DTP2 and DTP3 zero-dose rasters, updating the prefix (e.g., `dtp2_`, `dtp3_`). Remove older layers by right-clicking and selecting **Remove Layer**.
 
-### Editing Field Names
-1. Open the attribute table for the final Zonal Statistics layer.
-2. Double-click the layer, navigate to **Fields**, and enable editing mode.
-3. Update field names to include years.
-4. Save the changes and stop editing.
+However, this is still at the grid level and the final estimates are required at the administrative level. We will use the Zonal Statistics tool to produce the estimates of the number of zero-dose children.
 
-   <div align="center">
-   <img src="Fig_z4.png" alt="Editing Field Names">
-   </div>
 
-### Exporting the Final Layer
-1. Right-click the final Zonal Statistics layer and select **Export** > **Save Features As**.
-2. In the export window:
-   - Select **ESRI Shapefile** or **Comma Separated Value [CSV]** under **Format**.
-   - Navigate to the preferred folder and save the file.
+Again, open the Processing Toolbox, and search for **Zonal Statistics** in the search box. 
 
-   <div align="center">
-   <img src="Fig_z5.png" alt="Export Layer">
-   </div>
+<div align="center">
+<img src="Figures/Fig_z8.png" alt="Processing Toolbox">
+</div>
+
+Select the **Input layer** as the shapefile to be used, **Raster layer** as any of the zero-dose raster layers produced earlier, in this case, dtp1 zero-dose raster. In the output column prefix, give it a meaningful name, such as `dtp1_` to indicate which vaccine is considered. In the **Statistics to calculate**, click on the three dots, which opens a new pane to select a statistic. Click on **Sum** and select Ok. Go back to the Zonal statistics window using the arrow. 
+
+<div align="center">
+<img src="Figures/Fig_z9.png" alt="Zonal Statistics Control">
+</div>
+
+Click *Run* but do not close the tool window. This adds a new layer to the layers panel called *Zonal Statistics*. Right-click to open the attribute table and check to see that a new field/column `dtp1_sum` has been added. This is the sum or estimate of dtp1 zero-dose children at each Commune Arrondissement level. 
+
+<div align="center">
+<img src="Figures/Fig_z10.png" alt="Zonal Statistics">
+</div>
+
+
+Go back to the Zonal Statistics window and change the **Input layer** to the newly added Zonal Statistics layer, also change the **Raster layer** to the dtp2 zero-dose raster layer, and change the ‘Output column prefix’ to `dtp1`. Click **Run** and do not close. 
+   
+   
+<div align="center">
+<img src="Figures/Fig_z11.png" alt="Zonal Statistics Execute">
+</div>
+
+
+<div align="center">
+<img src="Figures/Fig_z12.png" alt="Choose Zonal Statistics Option">
+</div>
+   
+This adds a new **Zonal Statistics** layer on the previous layer. Remove the old layer by right-clicking and choose **Remove layer**. Repeat the same step for the dtp3 zero-dose and Population raster layers, and close the Zonal Statistics tool window.
+
+<div align="center">
+<img src="Figures/Fig_z13.png" alt="DTP3 Zonal Statistics">
+</div>
+
+Open the attribute table for the last zonal statistics layer run, and this includes four fields namely `dtp1_sum`, `dtp2_sum`, `dtp3_sum`, and `Pop_2022_sum`, as shown below.
+
+
+<div align="center">
+<img src="Figures/Fig_z14.png" alt="Sum Zonal Statistics">
+</div>
+
+Close the attribute table and double-click on the Zonal Statistic layer, then navigate to **Fields**. Currently, the field names produced from the zonal statistics do not show the years. To ensure that the years are added, at the top of the Fields window, click on **Toggle editing mode**, and click on the field names to begin editing as shown below.
+
+<div align="center">
+<img src="Figures/Fig_z15.png" alt="Zero-dose layer1">
+</div>
+
+
+<div align="center">
+<img src="Figures/Fig_z16.png" alt="Zero-dose layer2">
+</div>
+
+The field names now include the years. To save, click on **Toggle editing mode** again. Select **Save** to stop editing. You can open the attribute table again to see the edits, as shown below. 
+
+<div align="center">
+<img src="Figures/Fig_z17.png" alt="Toggle Editing Mode">
+</div>
+
+Close the attribute table. You can now export your layer either to a shapefile or CSV. To do this, right-click on the layer and select **Export** and **Save Features As** to navigate to a preferred folder where the files will be saved. 
+
+
+<div align="center">
+<img src="Figures/Fig_z18.png" alt="Shapefile Layer">
+</div>
+
+
+Once clicked, this opens a new window. Under the **Format** section, select `ESRI Shapefile` to save as a shapefile or **Comma Separated Value [CSV]** to save as CSV. 
+
+<div align="center">
+<img src="Figures/Fig_z19.png" alt="Save Vector Layer">
+</div>
+
+
+<div align="center">
+<img src="Figures/Fig_z20.png" alt="Save Vector Layer CSV">
+</div>
 
 ## Notes
 The above steps can be repeated for any administrative areas.
