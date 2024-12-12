@@ -73,18 +73,18 @@ Double-click on the tool to open its panel and follow the following instructions
 5. Leave other settings as default and click **Run**.
 
 <div align="center">
-<img src="Figures/Fig_z5.png" alt="Raster Calculator Setup" width="500" height="500">
+<img src="Figures/Fig_z5.png" alt="Raster Calculator Setup">
 </div>
 
 
 <div align="center">
-<img src="Figures/Fig_z6.png" alt="Raster Calculator" width="400" height="300">
+<img src="Figures/Fig_z6.png" alt="Raster Calculator" >
 </div>
 
 Upon running the tool, the number of unvaccinated or zero-dose children for dtp1 gets added to the map window. Repeat the same process using the same formula for other vaccination rasters. Upon completion, they all get added to the map window as shown below.
 
 <div align="center">
-<img src="Figures/Fig_z7.png" alt="Map Window" width="400" height="400">
+<img src="Figures/Fig_z7.png" alt="Map Window" width="500" height="450">
 </div>
 
 
@@ -110,7 +110,7 @@ Click *Run* but do not close the tool window. This adds a new layer to the layer
 </div>
 
 
-Go back to the Zonal Statistics window and change the **Input layer** to the newly added Zonal Statistics layer, also change the **Raster layer** to the dtp2 zero-dose raster layer, and change the ‘Output column prefix’ to `dtp1`. Click **Run** and do not close. 
+Go back to the Zonal Statistics window and change the **Input layer** to the newly added Zonal Statistics layer, also change the **Raster layer** to the dtp2 zero-dose raster layer, and change the **Output column prefix** to `dtp2`. Click **Run** and do not close. 
    
    
 <div align="center">
@@ -138,12 +138,12 @@ Open the attribute table for the last zonal statistics layer run, and this inclu
 Close the attribute table and double-click on the Zonal Statistic layer, then navigate to **Fields**. Currently, the field names produced from the zonal statistics do not show the years. To ensure that the years are added, at the top of the Fields window, click on **Toggle editing mode**, and click on the field names to begin editing as shown below.
 
 <div align="center">
-<img src="Figures/Fig_z15.png" alt="Zero-dose layer1" width="500" height="400">
+<img src="Figures/Fig_z15.png" alt="Zero-dose layer1">
 </div>
 
 
 <div align="center">
-<img src="Figures/Fig_z16.png" alt="Zero-dose layer2" width="500" height="400">
+<img src="Figures/Fig_z16.png" alt="Zero-dose layer2">
 </div>
 
 The field names now include the years. To save, click on **Toggle editing mode** again. Select **Save** to stop editing. You can open the attribute table again to see the edits, as shown below. 
@@ -156,7 +156,7 @@ Close the attribute table. You can now export your layer either to a shapefile o
 
 
 <div align="center">
-<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="400" height="400">
+<img src="Figures/Fig_z18.png" alt="Shapefile Layer" width="500" height="450">
 </div>
 
 
